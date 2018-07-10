@@ -1,0 +1,1 @@
+# cocoapod-edge-app-auth
