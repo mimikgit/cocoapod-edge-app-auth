@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "edgeSDK-iOS-app-auth"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "mimik Edge empowers developers to discover, connect, and communicate with various heterogeneous devices. Production backend."
 
   s.description  = <<-DESC
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.author       = { "mimik" => "apps@mimik.com" }
   s.source       = { :git => "https://github.com/mimikgit/cocoapod-edge-app-auth.git", :tag => "#{s.version}" }
 
-# s.vendored_frameworks = "edgeSDK_iOS.framework", "edgeSDK_iOS.framework/edge.framework"
+  s.vendored_frameworks = "edgeSDK_iOS_app_auth.framework"
 
   # s.dependency 'AppAuth'
   s.platform = 'ios', '11.0'
