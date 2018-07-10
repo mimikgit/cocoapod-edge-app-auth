@@ -1,0 +1,11 @@
+framework module edgeSDK_iOS_app_auth {
+  umbrella header "edgeSDK_iOS_app_auth.h"
+
+  export *
+  module * { export * }
+}
+
+module edgeSDK_iOS_app_auth.Swift {
+    header "edgeSDK_iOS_app_auth-Swift.h"
+    requires objc
+}
