@@ -182,9 +182,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSCoder;
 
 SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth10AuthConfig")
-@interface AuthConfig : NSObject
+@interface AuthConfig : NSObject <NSCoding>
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder;
 - (nonnull instancetype)initWithClientId:(NSString * _Nonnull)clientId redirectUrl:(NSURL * _Nonnull)redirectUrl additionalScopes:(NSArray<NSString *> * _Nullable)additionalScopes authorizationRootUrl:(NSURL * _Nullable)authorizationRootUrl OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, copy) NSString * _Nonnull clientId;
 @property (nonatomic, copy) NSURL * _Nonnull redirectUrl;
@@ -196,7 +199,9 @@ SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth10AuthConfig")
 
 
 SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth10AuthStatus")
-@interface AuthStatus : NSObject
+@interface AuthStatus : NSObject <NSCoding>
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder;
 - (nonnull instancetype)initWithAccessToken:(NSString * _Nonnull)accessToken idToken:(NSString * _Nonnull)idToken refreshToken:(NSString * _Nullable)refreshToken accessTokenExpirationDate:(NSDate * _Nonnull)accessTokenExpirationDate OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, copy) NSString * _Nonnull accessToken;
 @property (nonatomic, copy) NSString * _Nonnull idToken;

@@ -16,4 +16,3 @@ FOUNDATION_EXPORT const unsigned char edgeSDK_iOS_app_authVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <edgeSDK_iOS_app_auth/PublicHeader.h>
 
-
