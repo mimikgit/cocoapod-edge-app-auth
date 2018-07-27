@@ -184,6 +184,21 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSCoder;
 
+/// Authorization request configuration object.
+/// <ul>
+///   <li>
+///     clientId: Client application identifier. Generated for the developer at the developer portal during application registration.
+///   </li>
+///   <li>
+///     redirectUrl: Client application redirect URL. Specified by the developer at the developer portal during application registration.
+///   </li>
+///   <li>
+///     additionalScopes: Optional additional scopes for the authorization request. A default set is included automatically.
+///   </li>
+///   <li>
+///     authorizationRootUrl: Optional custom authorization server URL. A default server is used if unspecified.
+///   </li>
+/// </ul>
 SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth10AuthConfig")
 @interface AuthConfig : NSObject <NSCoding>
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
@@ -198,6 +213,21 @@ SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth10AuthConfig")
 @end
 
 
+/// Authentication status object used for EdgeAppOpsProtocol delegate callbacks. Essentially it provides information about the current edgeSDK lifecycle state and the reason behind the lifecycle state change.
+/// <ul>
+///   <li>
+///     accessToken: JWT edgeSDK authorization token which lets registered developer use local edgeSDK services. Used for mcm operations, micro services calls drive, esentially all direct to edgeSDK calls, account association. Used as a Bearer in the Authorization header.
+///   </li>
+///   <li>
+///     idToken: JWT account identifying token used for getting more information about the authenticated account (such as sub - account id).
+///   </li>
+///   <li>
+///     refreshToken: Currently not implemented.
+///   </li>
+///   <li>
+///     accessTokenExpirationDate: Access token expiration date.
+///   </li>
+/// </ul>
 SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth10AuthStatus")
 @interface AuthStatus : NSObject <NSCoding>
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
@@ -213,10 +243,43 @@ SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth10AuthStatus")
 
 @class UIViewController;
 
+/// edgeSDK_iOS_app_auth wrapper can be used to simplify the following edgeSDK operations:
+/// <ul>
+///   <li>
+///     authorize (One call authorization and edgeSDK account association with a completion block via a simple configuration object.)
+///   </li>
+///   <li>
+///     unauthorize (One call authorization and edgeSDK account unassociation with a completion block via a simple configuration object)
+///   </li>
+///   <li>
+///     <a href="https://openid.github.io/AppAuth-iOS/">AppAuth-iOS</a>
+///   </li>
+///   <li>
+///     <a href="https://developer.apple.com/documentation/safariservices/sfauthenticationsession">sfauthenticationsession</a>
+///   </li>
+/// </ul>
 SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth20edgeSDK_iOS_app_auth")
 @interface edgeSDK_iOS_app_auth : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// Starts an authorization session in a view controller according to the AuthConfig configuration object. Essentially a one call authorization with a completion block via a simple configuration object.
+/// note:
+/// First the authorization’s server configuration is discovered, then the authentication page is loaded into the view controller and a sfauthenticationsession is established. If successful edgeSDK gets associated with the logged in account and authentication tokens are returned in the completion block..
+/// \param authConfig Authorization configuration object.
+///
+/// \param viewController View controller to be used to load the sfauthenticationsession.
+///
+/// \param completion Completion block returning micro service AuthStatus or Error.
+///
 - (void)authorizeWithAuthConfig:(AuthConfig * _Nonnull)authConfig viewController:(UIViewController * _Nonnull)viewController completion:(void (^ _Nonnull)(AuthStatus * _Nullable status, NSError * _Nullable error))completion;
+/// Starts an authorization session in a view controller according to the AuthConfig configuration object in order to unassociate edgeSDK from the currently associated account. Essentially a one call edgeSDK account unassociation with a completion block via a simple configuration object.
+/// note:
+/// First the authorization’s server configuration is discovered, then the authentication page is loaded into the view controller and a sfauthenticationsession is established. If successful edgeSDK gets unassociated from the currently associated account.
+/// \param authConfig Authorization configuration object.
+///
+/// \param viewController View controller to be used to load the sfauthenticationsession.
+///
+/// \param completion Completion block returning micro service AuthStatus or Error.
+///
 - (void)unauthorizeWithAuthConfig:(AuthConfig * _Nonnull)authConfig viewController:(UIViewController * _Nonnull)viewController completion:(void (^ _Nonnull)(AuthStatus * _Nullable status, NSError * _Nullable error))completion;
 @end
 
