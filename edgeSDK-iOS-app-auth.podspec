@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "edgeSDK-iOS-app-auth"
-  s.version      = "0.0.13"
+  s.version      = "0.0.14"
   s.summary      = "mimik Edge empowers developers to discover, connect, and communicate with various heterogeneous devices. Production backend."
 
   s.description  = <<-DESC
@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
   s.dependency 'AppAuth'
   s.dependency 'SwiftWebSocket'
   s.dependency 'SwiftyJSON'
+  s.dependency 'edgeSDK-iOS'
 
   s.platform = 'ios', '11.0'
   s.swift_version = '4.1'
