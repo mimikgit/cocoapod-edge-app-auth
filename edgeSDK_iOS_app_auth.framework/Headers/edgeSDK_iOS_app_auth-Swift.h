@@ -272,7 +272,7 @@ SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth20edgeSDK_iOS_app_auth")
 /// \param completion Completion block returning micro service AuthStatus or Error.
 ///
 - (void)authorizeWithAuthConfig:(AuthConfig * _Nonnull)authConfig viewController:(UIViewController * _Nonnull)viewController completion:(void (^ _Nonnull)(AuthStatus * _Nullable status, NSError * _Nullable error))completion;
-/// Starts an authorization session in a view controller according to the AuthConfig configuration object in order to unassociate edgeSDK from the currently associated account. Essentially a one call edgeSDK account unassociation with a completion block via a simple configuration object.
+/// Starts an unauthorization session in a view controller according to the AuthConfig configuration object in order to unassociate edgeSDK from the currently associated account. Essentially a one call edgeSDK account unassociation with a completion block via a simple configuration object.
 /// note:
 /// First the authorization’s server configuration is discovered, then the authentication page is loaded into the view controller and a sfauthenticationsession is established. If successful edgeSDK gets unassociated from the currently associated account.
 /// \param authConfig Authorization configuration object.
