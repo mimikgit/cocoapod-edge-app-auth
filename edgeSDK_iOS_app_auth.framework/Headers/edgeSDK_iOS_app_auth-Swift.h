@@ -325,6 +325,10 @@ SWIFT_CLASS("_TtC20edgeSDK_iOS_app_auth20edgeSDK_iOS_app_auth")
 @end
 
 
+@interface edgeSDK_iOS_app_auth (SWIFT_EXTENSION(edgeSDK_iOS_app_auth))
+/// This is the edgeSDK WebSocket service link.
+- (NSString * _Nonnull)edgeWebSocketServiceLink SWIFT_WARN_UNUSED_RESULT;
+@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
