@@ -1,3 +1,12 @@
+```
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+THIS WRAPPER IS NOW DEPRECATED AND NO LONGER SUPPORTED. 
+PLEASE USE THE NEW MIMIKEdgeMobileClient WRAPPER INSTEAD.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+```
+
 # mimik Edge
 
 mimik Edge empowers developers to discover, connect, and communicate with various heterogeneous devices. Production backend.
